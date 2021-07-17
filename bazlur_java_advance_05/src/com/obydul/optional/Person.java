@@ -14,5 +14,4 @@ public class Person {
 	public static Person findPerson() {
 		return null;
 	}
-
 }

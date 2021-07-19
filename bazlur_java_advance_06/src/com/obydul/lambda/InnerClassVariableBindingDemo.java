@@ -15,6 +15,8 @@ public class InnerClassVariableBindingDemo {
 			}
 		});
 		
+		System.out.println(radians);
+		
 	}
 
 }

@@ -12,5 +12,7 @@ public class CommunicationApplication {
 
 		communicationService.setCommunicable(phoneCall);
 		communicationService.sendMessage("+8801523XXXXXX", "hello obydul");
+		communicationService.setCommunicable(videoCall);
+		communicationService.sendMessage("+8801523XXXXXX", "video call");
 	}
 }

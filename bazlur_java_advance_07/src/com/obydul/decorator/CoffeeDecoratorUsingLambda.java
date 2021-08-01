@@ -4,23 +4,26 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class CoffeeDecoratorUsingLambda {
-	
-	public static Coffee getCoffeeWithExtras(Coffee coffee, 
-			Function<Coffee, Coffee>... ingredients) {
+
+	public static Coffee getCoffeeWithExtras(Coffee coffee, Function<Coffee, Coffee>... ingredients) {
 		Function<Coffee, Coffee> initial = Kopi -> Kopi;
-		
-		Stream.of(ingredients)
-		.reduce(kopi -> kopi, (func1, func2) ->
-		func1.andThen(func2));
-		
-		Function<Coffee, Coffee> reduced =  Stream.of(ingredients)
-		.reduce(Function.identity(), Function::andThen);
-		
-		for (Function<Coffee, Coffee> ingredient: ingredients) {
+
+		Stream.of(ingredients).reduce(kopi -> kopi, (func1, func2) -> func1.andThen(func2));
+
+		Function<Coffee, Coffee> reduced = Stream.of(ingredients).reduce(Function.identity(), Function::andThen);
+
+		for (Function<Coffee, Coffee> ingredient : ingredients) {
 			initial = initial.andThen(ingredient);
 		}
-		//return initial.apply(coffee);
+		// return initial.apply(coffee);
 		return reduced.apply(coffee);
+	}
+
+	public static void main(String[] args) {
+		var coffee = getCoffeeWithExtras(new CoffeeBean(), Coffee::withDarkCookieCrumb, Coffee::withSweetenedMilk,
+				Coffee::withVanillaAlmondExtract);
+
+		System.out.println(coffee.getIngredient());
 	}
 
 }

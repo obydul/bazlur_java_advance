@@ -5,27 +5,28 @@ import java.util.function.Function;
 public class FunctionExample {
 
 	public static void main(String[] args) {
-		FunctionExample fe = new FunctionExample();
 		Function<Integer, Integer> doubleIt = a -> a * 2;
-		fe.calculate(4, doubleIt);
+		calculate("Double", 4, doubleIt);
 
 		Function<Integer, Integer> squireIt = a -> a * a;
-		fe.calculate(4, squireIt);
+		calculate("Multiply", 4, squireIt);
 
 		Function<Integer, Integer> cubeIt = a -> a * a * a;
-		fe.calculate(4, cubeIt);
-		
-		Function<Integer, Integer> inc = a -> a + 1;		
+		calculate("Cube", 4, cubeIt);
+
+		Function<Integer, Integer> inc = a -> a + 1;
 		Integer temp = cubeIt.apply(5);
 		Integer result = inc.apply(temp);
 		System.out.println("Temp :: " + temp);
 		System.out.println("Result :: " + result);
 
+		calculate("And then inc", 5, cubeIt.andThen(inc));
+
 	}
 
-	public void calculate(Integer value, Function<Integer, Integer> func) {
+	public static void calculate(String name, Integer value, Function<Integer, Integer> func) {
 		Integer result = func.apply(value);
-		System.out.println(result);
+		System.out.println(name + " : " + result);
 	}
 
 }

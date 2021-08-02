@@ -8,9 +8,6 @@ public class ConfigurationManagerDemo {
 						.setUsername("test")
 						.setPassword("123123")
 						.addRole("admin")
-				
-						
-						);
-		
+						);		
 	}
 }

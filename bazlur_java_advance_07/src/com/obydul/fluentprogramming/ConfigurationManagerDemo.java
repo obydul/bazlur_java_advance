@@ -8,10 +8,6 @@ public class ConfigurationManagerDemo {
 						.setUsername("test")
 						.setPassword("123123")
 						.addRole("admin")
-<<<<<<< HEAD
-						);		
-=======
 						.addRole("Developer"));
->>>>>>> branch 'main' of https://github.com/obydul/bazlur_java_advance.git
 	}
 }

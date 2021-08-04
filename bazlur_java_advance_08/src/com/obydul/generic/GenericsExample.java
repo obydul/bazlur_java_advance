@@ -8,9 +8,12 @@ public class GenericsExample {
 
 	public static void main(String[] args) {
 		List<?> list = Arrays.asList("This", "is", "java", LocalDate.now());
-		for (String string : list) {
-			System.out.println(string);
+		for (Object string : list) {
+			System.out.print(string + " ");
 		}
-	}
+		System.out.println();
 
+		list.forEach(o -> System.out.print(o + " "));
+		System.out.println();
+	}
 }

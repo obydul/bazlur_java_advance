@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SearchExample {
 	public static void main(String[] args) {
@@ -14,6 +15,10 @@ public class SearchExample {
 				new Book("Java 4", "DEF", 950, "Bengoli"));
 
 		System.out.println(findEnglishBooks(list));
+
+		System.out.println();
+
+		System.out.println(findEnglishBookWithJava8(list));
 
 	}
 
@@ -44,8 +49,11 @@ public class SearchExample {
 
 		return bookBuilder.toString();
 	}
-	
-	public static String findEnglishBookWithJava8() {
-		
+
+	public static String findEnglishBookWithJava8(List<Book> books) {
+		return books.stream().filter(book -> book.getLanguage().equals("English"))
+				.filter(book -> 500 <= book.getPrice() && book.getPrice() <= 1000)
+				.sorted(Comparator.comparing(Book::getPrice)).map(Book::toString).collect(Collectors.joining(", "));
+
 	}
 }

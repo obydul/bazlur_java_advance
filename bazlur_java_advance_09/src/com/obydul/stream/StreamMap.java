@@ -60,10 +60,15 @@ public class StreamMap {
 		//nameStream.forEach(name -> System.out.print(name+" "));
 		//System.out.println();
 		
-		personStream.filter(p -> 15 < p.getAge())
+		personStream.filter(StreamMap::personOlderThan15)
 		.map(p -> p.getName())
 		.forEach(name -> System.out.print(name+" "));
 		System.out.println();
 	}
+	
+	static boolean personOlderThan15 (StreamMap streamMap) {
+		return 15 < streamMap.getAge();
+	}
+	
 
 }

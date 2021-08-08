@@ -21,5 +21,5 @@ public class StreamSkip {
 		}
 		return IntStream.rangeClosed(2, number / 2).noneMatch(i -> number % i == 0);
 	}
-
+	
 }

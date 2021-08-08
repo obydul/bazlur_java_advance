@@ -17,7 +17,7 @@ public class StreamCount {
 					.count();
 			System.out.println(wordCount);
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 }

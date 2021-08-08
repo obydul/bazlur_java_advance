@@ -63,6 +63,13 @@ class Employee1 {
 		this.department = department;
 	}
 
+	@Override
+	public String toString() {
+		return "id = " + id + ", age = " + age + ", name = " + name + ", department = " + department;
+	}
+	
+	
+
 }
 
 public class StreamAnyMatch {

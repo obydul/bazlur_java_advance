@@ -25,9 +25,5 @@ public class FakeTransactionGenerator {
 		return randomBigDecimal.setScale(2, RoundingMode.UP);
 	}
 
-	public static void main(String[] args) {
-		List<Transaction> transactionList = FakeTransactionGenerator.generate(1_000_000);
-		System.out.println(transactionList);
-	}
 
 }

@@ -1,5 +1,7 @@
 package com.obydul.collectors;
 
+import java.util.List;
+
 public class Author {
 	private String firstName;
 	private String lastName;
@@ -25,6 +27,7 @@ public class Author {
 		this.lastName = lastName;
 	}
 	
+	
 }
 
 enum BookGenres{
@@ -33,5 +36,6 @@ enum BookGenres{
 	HUMOR,
 	MYSTERY,
 	YOUNG_ADULT_FICTION,
-	REFERENCE_BOOK
+	REFERENCE_BOOK,
+	COMPUTER
 }
